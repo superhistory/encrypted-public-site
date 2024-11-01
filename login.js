@@ -1,5 +1,5 @@
 function success(key) {
-	window.location.href = "secret.html?challenge="+raw_encrypt(key, "xor");
+	window.location.href = "secret.html?challenge="+btoa(raw_encrypt(key, "xor"));
 }
 
 function tryPassword() {

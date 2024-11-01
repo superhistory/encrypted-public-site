@@ -6,7 +6,7 @@ function structure(post, key) {
 
 window.onload = function() {
 	let params = new URLSearchParams(window.location.search);
-	let key = raw_decrypt(params.get("challenge"), "xor");
+	let key = raw_decrypt(atob(params.get("challenge")), "xor");
 	
 	if(correct(key)){
 		let res = "",
