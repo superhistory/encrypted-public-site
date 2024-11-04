@@ -15,7 +15,7 @@ window.onload = function() {
 			res += structure(posts[i], key);
 		}
 
-		document.getElementById("content").innerHTML += res;
+		document.getElementById("infill").innerHTML += res;
 
 	}else{
 		const overlay = document.createElement('div');
