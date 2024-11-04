@@ -1,7 +1,7 @@
 function structure(post, key) {
-	return `<div class="post"><div class="content">
+	return `<section>
 	${decrypt(post, key)}
-	</div></div>`
+	</section>`
 }
 
 window.onload = function() {
@@ -9,15 +9,13 @@ window.onload = function() {
 	let key = raw_decrypt(atob(params.get("challenge")), "xor");
 	
 	if(correct(key)){
-		let res = "",
-			spacer = "<div class=post-spacer></div>";
+		let res = "";
 
 		for(let i=0; i<posts.length; ++i) {
-			if(i) res += spacer;
 			res += structure(posts[i], key);
 		}
 
-		document.getElementById("posts-inner").innerHTML += res;
+		document.getElementById("content").innerHTML += res;
 
 	}else{
 		const overlay = document.createElement('div');
